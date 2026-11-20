@@ -752,6 +752,7 @@
       if (d.getDay() === 0) continue;
       dateInfos.push({ idx: c, date: d, week: isoWeek(d), label: `WK${isoWeek(d)}` });
     }
+    dateInfos.sort((a, b) => a.date - b.date);
     const weekOrder = [];
     const daysByWeek = new Map();
     dateInfos.forEach(info => {
@@ -844,6 +845,7 @@
     if (!dateInfos.length) throw new Error('No se encontraron columnas de fecha en Demanda.');
 
     const sequence = [];
+    dateInfos.sort((a, b) => a.date - b.date);
     const weekOrder = [];
     const daysByWeek = new Map();
     for (let i = 0; i < dateInfos.length; i++) {
